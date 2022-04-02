@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
@@ -10,17 +11,31 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      // Name this file main so it does not get automatically requested as a static file
+      filename: 'main.html',
+      template: path.resolve(__dirname, '..', 'src', 'main.html'),
+    }),
     new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
       {
+        // Regex to decide which files to run Babel on
+        test: /\.(js|mjs|jsx)$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        }],
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-          },
+          'css-loader',
           'sass-loader',
         ],
       },
