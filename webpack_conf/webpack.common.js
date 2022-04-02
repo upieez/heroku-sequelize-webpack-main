@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: '[name]-[contenthash].bundle.js',
     path: path.resolve(__dirname, '../dist'),
+    // Replace previously-compiled files with latest one on each build
     clean: true,
   },
   plugins: [
