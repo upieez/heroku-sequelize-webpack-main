@@ -7,8 +7,8 @@ export default function bindRoutes(app) {
 
   app.get('/items', ItemsController.index);
 
-  // special JS page. Include the webpack index.html file
-  app.get('/home', (request, response) => {
+  // Root route returns the Webpack-generated main.html file
+  app.get('/', (request, response) => {
     response.sendFile(resolve('dist', 'main.html'));
   });
 }
