@@ -26,4 +26,6 @@ bindRoutes(app);
 
 // Set Express to listen on the given port
 const PORT = process.env.PORT || 3004;
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`App running at localhost:${PORT}`);
+});
