@@ -8,7 +8,7 @@ module.exports = {
 	},
 	production: {
 		use_env_variable:
-			'postgres://thocdlusjfdcxg:015f23c88420a99a527e1c4fd573f2fedf9d6ef01d8386a6e0b58f8c75748490@ec2-44-197-128-108.compute-1.amazonaws.com:5432/d89ur3dpak5f8a',
+			'postgres://fghuulujcwcibh:5b15c000aac079b2903270d2b0091db7b4115955f3452c3eb58b010249e1ea8f@ec2-44-197-128-108.compute-1.amazonaws.com:5432/dcfqqfha4g996r',
 		dialect: 'postgres',
 		protocol: 'postgres',
 		dialectOptions: {
